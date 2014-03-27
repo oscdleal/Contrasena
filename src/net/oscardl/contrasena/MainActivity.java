@@ -36,6 +36,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		return resultado;
 	}
+	@SuppressWarnings("deprecation")
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public void copiaPortaPapeles(String texto){
 		
