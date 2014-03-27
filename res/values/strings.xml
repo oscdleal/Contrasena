@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Contraseña</string>
+    <string name="action_settings">Opciones</string>
+    <string name="generar">Generar</string>
+    <string name="copiar">Copiar</string>
+    <string name="mensajecopia">Contraseña Copiada</string>
+    <string name="formlongitud">Longitud</string>
+    <string name="formletras">Letras</string>
+    <string name="formnumeros">Números</string>
+    <string name="formmayusculas">Mayúsculas</string>
+    <string name="formsimbolos">Símbolos</string>
+    
+
+</resources>
