@@ -1,5 +1,6 @@
 package net.oscardl.contrasena;
 
+
 import android.os.Build;
 import android.os.Bundle;
 import android.annotation.TargetApi;
@@ -21,17 +22,46 @@ public class MainActivity extends Activity implements OnClickListener {
 	Button btocopiar;
 	Button btoopciones;
 	
-	public String GeneraCodigos (int lineas, int longitud)
+	int longitud = 4;
+	int grupos = 1;
+	boolean letras = true;
+	boolean numeros = true;
+	boolean mayusculas = true;
+	boolean simbolos = true;
+	
+	
+	public String GeneraCodigos (int grupos, int longitud, Boolean letras, boolean numeros, boolean mayusculas, boolean simbolos)
 	{
-		char codigos[] = {'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','1','2','3','4','5','6','7','8','9','0','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','-','+','=','_',';',':','?','¿','*','$','#','@'};
+		
+		
+		char codletras[] = {'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'};
+		char codnumeros[] = {'1','2','3','4','5','6','7','8','9','0'};
+		char codmayusculas[] = {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
+		char codsimbolos[] = {'-','+','=','_',';',':','?','¿','*','$','#','@'};
+		
+		StringBuilder sb = new StringBuilder();
+		
+		if(letras)sb.append(codletras);
+		if(numeros)sb.append(codnumeros);
+		if(mayusculas)sb.append(codmayusculas);
+		if(simbolos)sb.append(codsimbolos);
+		
+		char codigos[] = sb.toString().toCharArray();
+		
+				
 		String enigma = "";
 		String resultado = "";
-		for (int i = 1; i <= lineas; i++) {
+		
+		for (int i = 1; i <= grupos; i++) {
 			enigma = "";
 			for (int j = 0; j < longitud; j++) {
 				enigma += codigos[(int)Math.floor(Math.random()*codigos.length)];	
 			}
+			if(i == grupos){
 			resultado += enigma;
+			}else{
+				resultado += enigma+" ";
+			}
 		}
 		
 		return resultado;
@@ -82,7 +112,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		switch (v.getId()) {
 		case R.id.Bto_Generar:
-			String clave = GeneraCodigos(1, 12);
+			String clave = GeneraCodigos(grupos, longitud,letras,numeros,mayusculas,simbolos);
 			txtcontrasena.setText(clave);
 			//Toast.makeText(this, clave, Toast.LENGTH_LONG).show();
 			
