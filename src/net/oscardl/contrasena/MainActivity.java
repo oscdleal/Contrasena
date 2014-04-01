@@ -114,7 +114,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.Bto_Generar:
 			String clave = GeneraCodigos(grupos, longitud,letras,numeros,mayusculas,simbolos);
 			txtcontrasena.setText(clave);
-			//Toast.makeText(this, clave, Toast.LENGTH_LONG).show();
 			
 			
 			break;
